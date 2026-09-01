@@ -26,6 +26,6 @@ public class TransacaoController {
     @GetMapping("/")
     public ResponseEntity<List<Transacao>> listarTransacoes(){
         var lista = transacaoService.transacaoLista();
-        return ResponseEntity.status(201).body(lista);
+        return ResponseEntity.status(200).body(lista);
     }
 }

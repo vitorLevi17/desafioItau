@@ -28,4 +28,9 @@ public class TransacaoController {
         var lista = transacaoService.transacaoLista();
         return ResponseEntity.status(200).body(lista);
     }
+    @DeleteMapping("/")
+    public ResponseEntity<Void> deletarTransacao(){
+        transacaoService.zerarTransacaoLista();
+        return ResponseEntity.status(200).build();
+    }
 }

@@ -23,4 +23,7 @@ public class TransacaoService {
         var lista = transacaoRepository.getTransacaoLista();
         return lista;
     }
+    public void zerarTransacaoLista(){
+        transacaoRepository.zerarTransacaoLista();
+    }
 }

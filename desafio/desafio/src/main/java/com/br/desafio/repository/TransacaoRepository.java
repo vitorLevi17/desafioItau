@@ -18,4 +18,7 @@ public class TransacaoRepository {
     public List<Transacao> getTransacaoLista() {
         return transacaoLista;
     }
+    public void zerarTransacaoLista(){
+        this.transacaoLista.clear();
+    }
 }

@@ -5,6 +5,8 @@ import com.br.desafio.model.Transacao;
 import com.br.desafio.repository.TransacaoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TransacaoService {
 
@@ -16,5 +18,9 @@ public class TransacaoService {
     public void criarTransacao(CriarTransacaoDTO dto){
         Transacao transacao = new Transacao(dto);
         transacaoRepository.salvarTransacao(transacao);
+    }
+    public List<Transacao> transacaoLista(){
+        var lista = transacaoRepository.getTransacaoLista();
+        return lista;
     }
 }

@@ -14,6 +14,8 @@ public class TransacaoRepository {
 
     public void salvarTransacao(Transacao transacao) {
         this.transacaoLista.add(transacao);
-        System.out.println("salvo transacao com sucesso");
+    }
+    public List<Transacao> getTransacaoLista() {
+        return transacaoLista;
     }
 }

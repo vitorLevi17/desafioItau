@@ -1,7 +1,9 @@
 package com.br.desafio.service;
 
 import com.br.desafio.DTO.EstatisticaDTO;
+import com.br.desafio.model.Configuracoes;
 import com.br.desafio.model.Transacao;
+import com.br.desafio.repository.ConfiguracoesRepository;
 import com.br.desafio.repository.TransacaoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,17 +16,19 @@ import java.util.List;
 public class EstatisticaService {
 
     private TransacaoRepository repository;
+    private ConfiguracoesRepository configRepository;
     private static final Logger log = LoggerFactory.getLogger(EstatisticaService.class);
 
-    public EstatisticaService(TransacaoRepository repository) {
+    public EstatisticaService(TransacaoRepository repository, ConfiguracoesRepository configRepository) {
         this.repository = repository;
+        this.configRepository = configRepository;
     }
-    public EstatisticaDTO getEstatistica(//int segundos
-     ){
-        OffsetDateTime tempoLimite = OffsetDateTime.now().minusSeconds(60);
+    public EstatisticaDTO getEstatistica(){
+        var segundos = configRepository.getSegundosEstatistica();
+        OffsetDateTime tempoLimite = OffsetDateTime.now().minusSeconds(segundos);
 
         List<Transacao> transacaoLista = repository.getTransacaoLista();
-        log.info("Estatísticas das transações listadas do último minuto.");
+        log.info("Estatísticas das transações listadas no tempo configurado.");
 
         DoubleSummaryStatistics estatisticas = transacaoLista.stream()
                 .filter(t -> t.getDataHora().isAfter(tempoLimite))

@@ -1,6 +1,7 @@
-# Desafio Spring Boot - API de Transações e Estatísticas
+# Desafio Itaú - Java JR - API de Transações e Estatísticas
 
-Este projeto é uma aplicação Spring Boot que fornece uma API REST para gerenciamento de transações e cálculo de estatísticas. 
+Este projeto é uma aplicação Spring Boot que fornece uma API REST para gerenciamento de transações e cálculo de estatísticas.
+Endereço dos requisitos pedidos:https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior
 
 ## Pré-requisitos
 
